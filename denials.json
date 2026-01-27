@@ -119,3 +119,302 @@
     ]
   }
 ]
+[
+  {
+    "code": "CO-4",
+    "title": "Procedure inconsistent with modifier",
+    "category": "Coding / Modifier Issues",
+    "clinic": ["pain", "neonatology"],
+    "description": [
+      "Required modifier is missing or invalid.",
+      "Review and apply correct CPT/HCPCS modifiers.",
+      "Resubmit with accurate coding."
+    ]
+  },
+  {
+    "code": "CO-11",
+    "title": "Diagnosis inconsistent with procedure",
+    "category": "Coding / Documentation",
+    "clinic": ["pain", "neonatology"],
+    "description": [
+      "Diagnosis code does not support the billed procedure.",
+      "Confirm diagnosis aligns with medical record.",
+      "Adjust and resubmit."
+    ]
+  },
+  {
+    "code": "CO-16",
+    "title": "Claim lacks information",
+    "category": "Eligibility / Claim Errors",
+    "clinic": ["pain", "neonatology"],
+    "description": [
+      "Required field or data is missing or invalid.",
+      "Check patient data, service details, and provider information.",
+      "Correct and resubmit."
+    ]
+  },
+  {
+    "code": "CO-18",
+    "title": "Duplicate claim or service",
+    "category": "Duplicate / Submission Errors",
+    "clinic": ["pain", "neonatology"],
+    "description": [
+      "Same claim or service appears more than once.",
+      "Verify claim history before resubmission.",
+      "Withdraw duplicates where appropriate."
+    ]
+  },
+  {
+    "code": "CO-22",
+    "title": "Covered by another payer (COB)",
+    "category": "Coverage / Eligibility",
+    "clinic": ["pain", "neonatology"],
+    "description": [
+      "Another payer is primary.",
+      "Verify coordination of benefits.",
+      "Bill the correct primary and secondary."
+    ]
+  },
+  {
+    "code": "CO-27",
+    "title": "Expenses exceed allowed amount",
+    "category": "Contractual / Fee Schedule",
+    "clinic": ["pain", "neonatology"],
+    "description": [
+      "Charge exceeds allowed fee schedule.",
+      "Post adjustment based on contract.",
+      "Do not bill patient for difference."
+    ]
+  },
+  {
+    "code": "CO-29",
+    "title": "Timely filing limit exceeded",
+    "category": "Timely Filing",
+    "clinic": ["pain", "neonatology"],
+    "description": [
+      "Claim submitted past payer deadline.",
+      "Verify timely filing limits.",
+      "Appeal with documentation if allowed."
+    ]
+  },
+  {
+    "code": "CO-45",
+    "title": "Charge exceeds fee schedule / contracted maximum",
+    "category": "Contractual / Fee Schedule",
+    "clinic": ["pain", "neonatology"],
+    "description": [
+      "Billed charge beyond contracted amount.",
+      "Review payer fee schedule.",
+      "Post appropriate adjustments."
+    ]
+  },
+  {
+    "code": "CO-50",
+    "title": "Not medically necessary",
+    "category": "Medical Necessity",
+    "clinic": ["pain", "neonatology"],
+    "description": [
+      "Payer considers service not medically necessary.",
+      "Review clinical documentation.",
+      "Appeal with supporting records if justified."
+    ]
+  },
+  {
+    "code": "CO-96",
+    "title": "Non‑covered charge",
+    "category": "Coverage / Eligibility",
+    "clinic": ["pain", "neonatology"],
+    "description": [
+      "Service not covered by patient plan.",
+      "Verify benefits and plan coverage.",
+      "Discuss self‑pay options if appropriate."
+    ]
+  },
+  {
+    "code": "CO-109",
+    "title": "Claim not covered by this payer",
+    "category": "Coverage / Eligibility",
+    "clinic": ["pain", "neonatology"],
+    "description": [
+      "Claim billed to wrong payer.",
+      "Confirm payer information.",
+      "Resubmit to correct insurer."
+    ]
+  },
+  {
+    "code": "CO-151",
+    "title": "Information does not support service billed",
+    "category": "Coding / Documentation",
+    "clinic": ["pain", "neonatology"],
+    "description": [
+      "Documentation does not support billed service.",
+      "Review clinical notes and coding.",
+      "Correct and resubmit."
+    ]
+  },
+  {
+    "code": "CO-167",
+    "title": "Diagnosis not covered",
+    "category": "Medical Necessity",
+    "clinic": ["pain", "neonatology"],
+    "description": [
+      "Diagnosis excluded under patient’s plan.",
+      "Review coverage guidelines.",
+      "Adjust diagnosis or provide justification."
+    ]
+  },
+  {
+    "code": "CO-170",
+    "title": "Service not covered per policy",
+    "category": "Coverage / Policy",
+    "clinic": ["pain", "neonatology"],
+    "description": [
+      "Service excluded under payer rules.",
+      "Verify policy terms.",
+      "Appeal only if grounds documented."
+    ]
+  },
+  {
+    "code": "CO-197",
+    "title": "Authorization / precertification required",
+    "category": "Authorization / Referral",
+    "clinic": ["pain", "neonatology"],
+    "description": [
+      "Prior auth is required but missing.",
+      "Obtain authorization and resubmit.",
+      "Document authorization details."
+    ]
+  },
+  {
+    "code": "CO-204",
+    "title": "Service not covered by benefit plan",
+    "category": "Coverage / Eligibility",
+    "clinic": ["pain", "neonatology"],
+    "description": [
+      "Service not a covered benefit.",
+      "Verify benefit plan details.",
+      "Advise patient of coverage limits."
+    ]
+  },
+  {
+    "code": "CO-252",
+    "title": "Required attachment missing",
+    "category": "Documentation",
+    "clinic": ["pain", "neonatology"],
+    "description": [
+      "Missing required documentation.",
+      "Attach necessary clinical records.",
+      "Resubmit with attachments."
+    ]
+  },
+  {
+    "code": "CO-B7",
+    "title": "Provider not eligible to bill this service",
+    "category": "Provider Eligibility",
+    "clinic": ["pain", "neonatology"],
+    "description": [
+      "Provider not credentialed.",
+      "Verify enrollment and credentialing.",
+      "Update payer files and resubmit."
+    ]
+  },
+  {
+    "code": "PR-1",
+    "title": "Deductible amount",
+    "category": "Patient Responsibility",
+    "clinic": ["pain", "neonatology"],
+    "description": [
+      "Patient deductible applies.",
+      "Verify deductible amount.",
+      "Bill patient accordingly."
+    ]
+  },
+  {
+    "code": "PR-2",
+    "title": "Coinsurance",
+    "category": "Patient Responsibility",
+    "clinic": ["pain", "neonatology"],
+    "description": [
+      "Patient coinsurance applies.",
+      "Verify coinsurance percentage.",
+      "Post patient responsibility."
+    ]
+  },
+  {
+    "code": "PR-3",
+    "title": "Copay",
+    "category": "Patient Responsibility",
+    "clinic": ["pain", "neonatology"],
+    "description": [
+      "Patient copayment applies.",
+      "Verify copay.",
+      "Post copay in system."
+    ]
+  },
+  {
+    "code": "CO-31",
+    "title": "Patient cannot be identified",
+    "category": "Eligibility / Identification",
+    "clinic": ["pain", "neonatology"],
+    "description": [
+      "Patient data incorrect or missing.",
+      "Check demographics and policy ID.",
+      "Resubmit corrected claim."
+    ]
+  },
+  {
+    "code": "CO-18",
+    "title": "Duplicate claim/service",
+    "category": "Duplicate / Submission Errors",
+    "clinic": ["pain", "neonatology"],
+    "description": [
+      "Claim already processed.",
+      "Review prior submissions.",
+      "Withdraw duplicates."
+    ]
+  },
+  {
+    "code": "CO-27",
+    "title": "Coverage expired",
+    "category": "Coverage / Eligibility",
+    "clinic": ["pain", "neonatology"],
+    "description": [
+      "Patient’s coverage ended before service.",
+      "Verify eligibility status.",
+      "Update records as needed."
+    ]
+  },
+  {
+    "code": "CO-15",
+    "title": "Invalid/nonexistent auth",
+    "category": "Authorization / Referral",
+    "clinic": ["pain", "neonatology"],
+    "description": [
+      "Authorization invalid or incorrectly recorded.",
+      "Verify auth details.",
+      "Correct and resubmit."
+    ]
+  },
+  {
+    "code": "CO-6",
+    "title": "Procedure code/Type of bill invalid",
+    "category": "Coding / Submission Errors",
+    "clinic": ["pain", "neonatology"],
+    "description": [
+      "Procedure code or type of bill incorrect.",
+      "Check CPT/HCPCS and billing type.",
+      "Correct and resubmit."
+    ]
+  },
+  {
+    "code": "CO-9",
+    "title": "Invalid/Unknown procedure code",
+    "category": "Coding / Submission Errors",
+    "clinic": ["pain", "neonatology"],
+    "description": [
+      "Procedure code not recognized.",
+      "Verify coding manuals.",
+      "Resubmit with correct code."
+    ]
+  }
+]
