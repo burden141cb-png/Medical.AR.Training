@@ -49,12 +49,21 @@
     ol {
         margin-left: 20px;
     }
+    #search-bar {
+        width: 100%;
+        padding: 6px;
+        margin-bottom: 10px;
+        border-radius: 4px;
+        border: none;
+        font-size: 14px;
+    }
 </style>
 </head>
 <body>
 
 <div id="sidebar">
     <h2>Denial Categories</h2>
+    <input type="text" id="search-bar" placeholder="Search codes or keywords..." />
     <ul id="sidebar-ul">
         <!-- Sidebar items generated dynamically -->
     </ul>
@@ -66,9 +75,12 @@
 
 <script>
 // Fetch the denials JSON file
+let allDenials = []; // Store for searching/filtering
+
 fetch('denials.json')
   .then(response => response.json())
   .then(denialData => {
+    allDenials = denialData;
 
     // Generate sidebar based on categories
     const sidebar = document.getElementById('sidebar-ul');
@@ -76,12 +88,13 @@ fetch('denials.json')
     categories.forEach(cat => {
         const li = document.createElement('li');
         li.textContent = cat;
-        li.onclick = () => showCategory(cat, denialData);
+        li.onclick = () => showCategory(cat);
         sidebar.appendChild(li);
     });
 
     // Show first category by default
-    showCategory(categories[0], denialData);
+    showCategory(categories[0]);
+
   })
   .catch(err => {
       console.error("Failed to load denials.json", err);
@@ -89,21 +102,37 @@ fetch('denials.json')
   });
 
 // Function to display denials by category
-function showCategory(category, denialData) {
+function showCategory(category) {
     const content = document.getElementById('content');
     content.innerHTML = ''; // Clear previous content
 
-    // Filter denials for this category
-    denialData.filter(d => d.category === category)
-              .forEach(d => {
-                  const div = document.createElement('div');
-                  div.classList.add('keyword-section');
-                  div.innerHTML = `<h1>${d.code}</h1>
-                                   <h3>${d.title}</h3>
-                                   <ol>${d.description.map(step => `<li>${step}</li>`).join('')}</ol>`;
-                  content.appendChild(div);
-              });
+    allDenials.filter(d => d.category === category)
+              .forEach(d => addDenialToContent(d));
 }
+
+// Function to render a denial
+function addDenialToContent(d) {
+    const content = document.getElementById('content');
+    const div = document.createElement('div');
+    div.classList.add('keyword-section');
+    div.innerHTML = `<h1>${d.code}</h1>
+                     <h3>${d.title}</h3>
+                     <ol>${d.description.map(step => `<li>${step}</li>`).join('')}</ol>`;
+    content.appendChild(div);
+}
+
+// Search bar functionality
+document.getElementById('search-bar').addEventListener('input', function() {
+    const query = this.value.toLowerCase();
+    const content = document.getElementById('content');
+    content.innerHTML = '';
+
+    allDenials.filter(d =>
+        d.code.toLowerCase().includes(query) ||
+        d.title.toLowerCase().includes(query) ||
+        d.description.join(' ').toLowerCase().includes(query)
+    ).forEach(d => addDenialToContent(d));
+});
 </script>
 
 </body>
