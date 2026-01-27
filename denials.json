@@ -1,0 +1,73 @@
+[
+  {
+    "code": "CO-22",
+    "title": "Claim/service covered by another payer (COB)",
+    "category": "Coverage / Eligibility",
+    "clinic": ["pain", "neonatology"],
+    "description": [
+      "Check primary payer EOB/ERA.",
+      "Verify COB loops in your PM system.",
+      "Post primary payment and adjustments.",
+      "Prepare secondary claim with correct COB info.",
+      "Submit as a new claim (not a replacement).",
+      "Document resolution in patient notes."
+    ]
+  },
+  {
+    "code": "CO-50",
+    "title": "Not Medically Necessary",
+    "category": "Medical Necessity",
+    "clinic": ["pain", "neonatology"],
+    "description": [
+      "Check LCD/NCD for procedure.",
+      "Review documentation (pain scale, imaging, conservative tx).",
+      "Appeal with supporting records if criteria met.",
+      "Adjust if truly non-covered."
+    ]
+  },
+  {
+    "code": "CO-197",
+    "title": "Precertification / Authorization Required",
+    "category": "Authorization / Referral",
+    "clinic": ["pain", "neonatology"],
+    "description": [
+      "Verify auth requirements per payer.",
+      "Confirm CPT, units, and date range match authorization.",
+      "Obtain retro-auth if allowed.",
+      "Submit corrected claim or appeal with auth."
+    ]
+  },
+  {
+    "code": "CO-97",
+    "title": "Bundled Service",
+    "category": "Coding / Modifier Issues",
+    "clinic": ["pain"],
+    "description": [
+      "Review CPT bundling rules.",
+      "Verify modifier usage (59, XE, XS, XU).",
+      "Correct and resubmit if allowed."
+    ]
+  },
+  {
+    "code": "CO-16",
+    "title": "Missing / Invalid Information",
+    "category": "Eligibility / Identification",
+    "clinic": ["neonatology"],
+    "description": [
+      "Verify newborn member ID and DOB.",
+      "Confirm claim billed under correct subscriber.",
+      "Correct and resubmit as new claim."
+    ]
+  },
+  {
+    "code": "CO-29",
+    "title": "Timely Filing Limit Exceeded",
+    "category": "Timely Filing",
+    "clinic": ["neonatology"],
+    "description": [
+      "Check payer filing limits.",
+      "Verify newborn enrollment delay.",
+      "Appeal with proof if applicable."
+    ]
+  }
+]
