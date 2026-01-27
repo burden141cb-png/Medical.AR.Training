@@ -20,7 +20,7 @@
     "clinic": ["pain", "neonatology"],
     "description": [
       "Check LCD/NCD for procedure.",
-      "Review documentation (pain scale, imaging, conservative tx).",
+      "Review documentation (pain scale, imaging, conservative treatment).",
       "Appeal with supporting records if criteria met.",
       "Adjust if truly non-covered."
     ]
@@ -31,10 +31,10 @@
     "category": "Authorization / Referral",
     "clinic": ["pain", "neonatology"],
     "description": [
-      "Verify auth requirements per payer.",
+      "Verify authorization requirements per payer.",
       "Confirm CPT, units, and date range match authorization.",
-      "Obtain retro-auth if allowed.",
-      "Submit corrected claim or appeal with auth."
+      "Obtain retroactive authorization if allowed.",
+      "Submit corrected claim or appeal with authorization."
     ]
   },
   {
@@ -54,7 +54,7 @@
     "category": "Eligibility / Identification",
     "clinic": ["neonatology"],
     "description": [
-      "Verify newborn member ID and DOB.",
+      "Verify newborn member ID and date of birth.",
       "Confirm claim billed under correct subscriber.",
       "Correct and resubmit as new claim."
     ]
@@ -68,6 +68,54 @@
       "Check payer filing limits.",
       "Verify newborn enrollment delay.",
       "Appeal with proof if applicable."
+    ]
+  },
+  {
+    "code": "MA130",
+    "title": "Unprocessable claim due to missing/invalid info",
+    "category": "Eligibility / Identification",
+    "clinic": ["pain", "neonatology"],
+    "description": [
+      "Identify missing or incorrect information on the claim.",
+      "Correct the claim details.",
+      "Submit as a new claim (do not appeal).",
+      "Document steps in the patient record."
+    ]
+  },
+  {
+    "code": "CO-45",
+    "title": "Charge exceeds fee schedule / contracted maximum",
+    "category": "Contractual / Fee Schedule",
+    "clinic": ["pain", "neonatology"],
+    "description": [
+      "Check payer’s fee schedule.",
+      "Compare billed charge to allowed amount.",
+      "Post adjustment for the difference.",
+      "Do not bill patient for CO-45."
+    ]
+  },
+  {
+    "code": "PR-2",
+    "title": "Coinsurance",
+    "category": "Patient Responsibility",
+    "clinic": ["pain", "neonatology"],
+    "description": [
+      "Identify patient responsibility per ERA/EOB.",
+      "Check if patient is Medicare/QMB — may not be billable.",
+      "Post coinsurance in PM system if allowed.",
+      "Document any adjustments or write-offs."
+    ]
+  },
+  {
+    "code": "PR-3",
+    "title": "Copay",
+    "category": "Patient Responsibility",
+    "clinic": ["pain", "neonatology"],
+    "description": [
+      "Identify copay from secondary payer ERA/EOB.",
+      "Check if patient is Medicare/QMB — may not be billable.",
+      "Post copay in PM system if allowed.",
+      "Document in patient account notes."
     ]
   }
 ]
