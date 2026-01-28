@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Medical Billing Training Index</title>
+<title>Medical Billing Training – Pain Clinic</title>
+
 <style>
     body {
         font-family: Arial, sans-serif;
@@ -12,18 +13,21 @@
         height: 100vh;
         background-color: #f4f4f4;
     }
+
     #sidebar {
-        width: 280px;
+        width: 300px;
         background-color: #2F4F4F;
         color: white;
         overflow-y: auto;
-        padding: 10px;
+        padding: 12px;
         box-sizing: border-box;
     }
+
     #sidebar h2 {
-        font-size: 20px;
         margin-top: 0;
+        font-size: 20px;
     }
+
     #searchInput {
         width: 100%;
         padding: 8px;
@@ -32,61 +36,86 @@
         border-radius: 4px;
         font-size: 14px;
     }
-    #sidebar ul {
+
+    #denialList {
         list-style: none;
-        padding-left: 0;
-        max-height: calc(100vh - 120px);
-        overflow-y: auto;
+        padding: 0;
+        margin: 0;
     }
-    #sidebar li {
+
+    #denialList li {
         padding: 8px;
+        margin-bottom: 4px;
         cursor: pointer;
         border-radius: 4px;
-        margin-bottom: 3px;
+        font-size: 14px;
     }
-    #sidebar li:hover, #sidebar li.active {
+
+    #denialList li:hover,
+    #denialList li.active {
         background-color: #556B2F;
     }
+
     #content {
         flex-grow: 1;
         padding: 20px;
         overflow-y: auto;
         background-color: #f4f4f4;
     }
+
     h1, h3 {
         color: #2F4F4F;
-        margin-bottom: 5px;
+        margin-bottom: 6px;
     }
+
     ol {
-        margin-top: 0;
+        margin-top: 5px;
     }
+
+    .meta {
+        margin-bottom: 10px;
+        font-size: 14px;
+    }
+
+    .resolution {
+        background-color: #e8f0ef;
+        padding: 10px;
+        border-left: 5px solid #2F4F4F;
+        margin-bottom: 15px;
+    }
+
+    .remarks {
+        font-style: italic;
+        margin-top: 10px;
+        color: #444;
+    }
+
     #error {
         color: red;
         font-weight: bold;
     }
 </style>
 </head>
+
 <body>
 
 <div id="sidebar">
-    <h2>Denial Categories</h2>
-    <input type="text" id="searchInput" placeholder="Search codes or keywords..." />
-    <ul id="denialList">
-        <!-- Denial codes loaded dynamically here -->
-    </ul>
+    <h2>Denial Codes (Pain Clinic)</h2>
+    <input type="text" id="searchInput" placeholder="Search code, title, steps..." />
+    <ul id="denialList"></ul>
 </div>
 
 <div id="content">
     <div id="error"></div>
     <div id="denialDetails">
-        <h1>Welcome to Medical Billing Training</h1>
-        <p>Select a denial code from the list to see details here.</p>
+        <h1>Medical Billing Training</h1>
+        <p>Select a denial code from the left to view resolution steps.</p>
     </div>
 </div>
 
 <script>
-// Variables to store data and track selected code
 let denials = [];
+
 const denialList = document.getElementById('denialList');
 const denialDetails = document.getElementById('denialDetails');
 const searchInput = document.getElementById('searchInput');
@@ -94,115 +123,41 @@ const errorDiv = document.getElementById('error');
 
 function displayDenial(denial) {
     denialDetails.innerHTML = `
-        <h1>${denial.code} - ${denial.title}</h1>
-        <h3>Category: ${denial.category}</h3>
-        <h3>Clinics: ${denial.clinic.join(', ')}</h3>
-        <h3>Step-by-step resolution:</h3>
-        <ol>
-            ${denial.description.map(step => `<li>${step}</li>`).join('')}
-        </ol>
-    `;
-}
+        <h1>${denial.code} – ${denial.title}</h1>
 
-// Populate list with filtered denials
-function populateList(filter = '') {
-    denialList.innerHTML = '';
-    let filtered = denials.filter(d => {
-        const searchText = filter.toLowerCase();
-        return d.code.toLowerCase().includes(searchText) ||
-               d.title.toLowerCase().includes(searchText) ||
-               d.category.toLowerCase().includes(searchText) ||
-               d.clinic.some(c => c.toLowerCase().includes(searchText)) ||
-               d.description.some(desc => desc.toLowerCase().includes(searchText));
-    });
+        <div class="meta">
+            <strong>Category:</strong> ${denial.category}<br />
+            <strong>Clinic:</strong> ${denial.clinic.join(', ')}
+        </div>
 
-    if (filtered.length === 0) {
-        denialList.innerHTML = '<li>No results found.</li>';
-        denialDetails.innerHTML = '<p>No denial details to show.</p>';
-        return;
-    }
+        <div class="resolution">
+            <strong>Resolution:</strong> ${denial.resolution}
+        </div>
 
-    filtered.forEach((denial, index) => {
-        const li = document.createElement('li');
-        li.textContent = `${denial.code} - ${denial.title}`;
-        li.onclick = () => {
-            displayDenial(denial);
-            // Remove active class from others
-            document.querySelectorAll('#denialList li').forEach(el => el.classList.remove('active'));
-            li.classList.add('active');
-        };
-        denialList.appendChild(li);
-
-        // If first in filtered list, display by default
-        if (index === 0) {
-            li.classList.add('active');
-            displayDenial(denial);
-        }
-    });
-}
-
-function loadDenials() {
-    fetch('denials.json')
-        .then(response => {
-            if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
-            return response.json();
-        })
-        .then(data => {
-            denials = data;
-            populateList();
-        })
-        .catch(err => {
-            errorDiv.textContent = 'Error loading denials. Make sure denials.json is in the root folder.';
-            console.error(err);
-        });
-}
-
-searchInput.addEventListener('input', () => {
-    populateList(searchInput.value.trim());
-});
-
-// Initial load
-loadDenials();
-
-<script>
-// Variables to store data and track selected code
-let denials = [];
-const denialList = document.getElementById('denialList');
-const denialDetails = document.getElementById('denialDetails');
-const searchInput = document.getElementById('searchInput');
-const errorDiv = document.getElementById('error');
-
-function displayDenial(denial) {
-    denialDetails.innerHTML = `
-        <h1>${denial.code} - ${denial.title}</h1>
-        <h3>Category: ${denial.category}</h3>
-        <h3>Clinic: ${denial.clinic.join(', ')}</h3>
-        <h3>Resolution:</h3>
-        <p><strong>${denial.resolution}</strong></p>
-        <h3>Step-by-step actions:</h3>
+        <h3>Step-by-step actions</h3>
         <ol>
             ${denial.steps.map(step => `<li>${step}</li>`).join('')}
         </ol>
-        <p><em>${denial.remarks}</em></p>
+
+        <div class="remarks">
+            ${denial.remarks}
+        </div>
     `;
 }
 
-// Populate list with filtered denials
 function populateList(filter = '') {
     denialList.innerHTML = '';
-
     const searchText = filter.toLowerCase();
 
     const filtered = denials.filter(d =>
         d.code.toLowerCase().includes(searchText) ||
         d.title.toLowerCase().includes(searchText) ||
         d.category.toLowerCase().includes(searchText) ||
-        d.clinic.some(c => c.toLowerCase().includes(searchText)) ||
         d.steps.some(step => step.toLowerCase().includes(searchText))
     );
 
     if (filtered.length === 0) {
-        denialList.innerHTML = '<li>No results found.</li>';
+        denialList.innerHTML = '<li>No results found</li>';
         denialDetails.innerHTML = '<p>No denial details to show.</p>';
         return;
     }
@@ -210,11 +165,13 @@ function populateList(filter = '') {
     filtered.forEach((denial, index) => {
         const li = document.createElement('li');
         li.textContent = `${denial.code} - ${denial.title}`;
+
         li.onclick = () => {
-            displayDenial(denial);
             document.querySelectorAll('#denialList li').forEach(el => el.classList.remove('active'));
             li.classList.add('active');
+            displayDenial(denial);
         };
+
         denialList.appendChild(li);
 
         if (index === 0) {
@@ -228,18 +185,17 @@ function loadDenials() {
     fetch('denials.json')
         .then(response => {
             if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
+                throw new Error(`HTTP error: ${response.status}`);
             }
             return response.json();
         })
         .then(data => {
-            // IMPORTANT CHANGE: pull denials from root object
             denials = data.denials;
             populateList();
         })
         .catch(err => {
             errorDiv.textContent =
-                'Error loading denials. Ensure denials.json is in the root folder and properly formatted.';
+                'Error loading denials.json. Make sure it is in the root folder and valid JSON.';
             console.error(err);
         });
 }
@@ -248,7 +204,8 @@ searchInput.addEventListener('input', () => {
     populateList(searchInput.value.trim());
 });
 
-// Initial load
 loadDenials();
 </script>
 
+</body>
+</html>
