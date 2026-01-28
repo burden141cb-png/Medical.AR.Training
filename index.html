@@ -164,7 +164,91 @@ searchInput.addEventListener('input', () => {
 // Initial load
 loadDenials();
 
+<script>
+// Variables to store data and track selected code
+let denials = [];
+const denialList = document.getElementById('denialList');
+const denialDetails = document.getElementById('denialDetails');
+const searchInput = document.getElementById('searchInput');
+const errorDiv = document.getElementById('error');
+
+function displayDenial(denial) {
+    denialDetails.innerHTML = `
+        <h1>${denial.code} - ${denial.title}</h1>
+        <h3>Category: ${denial.category}</h3>
+        <h3>Clinic: ${denial.clinic.join(', ')}</h3>
+        <h3>Resolution:</h3>
+        <p><strong>${denial.resolution}</strong></p>
+        <h3>Step-by-step actions:</h3>
+        <ol>
+            ${denial.steps.map(step => `<li>${step}</li>`).join('')}
+        </ol>
+        <p><em>${denial.remarks}</em></p>
+    `;
+}
+
+// Populate list with filtered denials
+function populateList(filter = '') {
+    denialList.innerHTML = '';
+
+    const searchText = filter.toLowerCase();
+
+    const filtered = denials.filter(d =>
+        d.code.toLowerCase().includes(searchText) ||
+        d.title.toLowerCase().includes(searchText) ||
+        d.category.toLowerCase().includes(searchText) ||
+        d.clinic.some(c => c.toLowerCase().includes(searchText)) ||
+        d.steps.some(step => step.toLowerCase().includes(searchText))
+    );
+
+    if (filtered.length === 0) {
+        denialList.innerHTML = '<li>No results found.</li>';
+        denialDetails.innerHTML = '<p>No denial details to show.</p>';
+        return;
+    }
+
+    filtered.forEach((denial, index) => {
+        const li = document.createElement('li');
+        li.textContent = `${denial.code} - ${denial.title}`;
+        li.onclick = () => {
+            displayDenial(denial);
+            document.querySelectorAll('#denialList li').forEach(el => el.classList.remove('active'));
+            li.classList.add('active');
+        };
+        denialList.appendChild(li);
+
+        if (index === 0) {
+            li.classList.add('active');
+            displayDenial(denial);
+        }
+    });
+}
+
+function loadDenials() {
+    fetch('denials.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            // IMPORTANT CHANGE: pull denials from root object
+            denials = data.denials;
+            populateList();
+        })
+        .catch(err => {
+            errorDiv.textContent =
+                'Error loading denials. Ensure denials.json is in the root folder and properly formatted.';
+            console.error(err);
+        });
+}
+
+searchInput.addEventListener('input', () => {
+    populateList(searchInput.value.trim());
+});
+
+// Initial load
+loadDenials();
 </script>
 
-</body>
-</html>
