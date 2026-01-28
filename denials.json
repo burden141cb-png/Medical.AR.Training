@@ -1,308 +1,366 @@
-[
-  {
-    "code": "CO-22",
-    "title": "Claim/service covered by another payer (COB)",
-    "category": "Coverage / Eligibility",
-    "clinic": ["pain", "neonatology"],
-    "description": [
-      "Check primary payer EOB/ERA.",
-      "Verify COB loops in your PM system.",
-      "Post primary payment and adjustments.",
-      "Prepare secondary claim with correct COB info.",
-      "Submit as a new claim (not a replacement).",
-      "Document resolution in patient notes."
-    ]
+{
+  "glossary": {
+    "DOB": "Date of Birth",
+    "DOS": "Date of Service",
+    "EOB": "Explanation of Benefits",
+    "ERA": "Electronic Remittance Advice",
+    "LCD": "Local Coverage Determination",
+    "NCD": "National Coverage Determination",
+    "NCCI": "National Correct Coding Initiative",
+    "COB": "Coordination of Benefits",
+    "ICD-10": "International Classification of Diseases, 10th Revision",
+    "CPT": "Current Procedural Terminology",
+    "HCPCS": "Healthcare Common Procedure Coding System",
+    "ABN": "Advance Beneficiary Notice",
+    "QMB": "Qualified Medicare Beneficiary",
+    "RFA": "Radiofrequency Ablation",
+    "E/M": "Evaluation and Management",
+    "PM": "Practice Management System"
   },
-  {
-    "code": "CO-50",
-    "title": "Not Medically Necessary",
-    "category": "Medical Necessity",
-    "clinic": ["pain", "neonatology"],
-    "description": [
-      "Check LCD/NCD for procedure.",
-      "Review documentation (pain scale, imaging, conservative treatment).",
-      "Appeal with supporting records if criteria met.",
-      "Adjust if truly non-covered."
-    ]
-  },
-  {
-    "code": "CO-197",
-    "title": "Precertification / Authorization Required",
-    "category": "Authorization / Referral",
-    "clinic": ["pain", "neonatology"],
-    "description": [
-      "Verify authorization requirements per payer.",
-      "Confirm CPT, units, and date range match authorization.",
-      "Obtain retroactive authorization if allowed.",
-      "Submit corrected claim or appeal with authorization."
-    ]
-  },
-  {
-    "code": "CO-97",
-    "title": "Bundled Service",
-    "category": "Coding / Modifier Issues",
-    "clinic": ["pain"],
-    "description": [
-      "Review CPT bundling rules.",
-      "Verify modifier usage (59, XE, XS, XU).",
-      "Correct and resubmit if allowed."
-    ]
-  },
-  {
-    "code": "CO-16",
-    "title": "Missing / Invalid Information",
-    "category": "Eligibility / Identification",
-    "clinic": ["neonatology"],
-    "description": [
-      "Verify newborn member ID and date of birth.",
-      "Confirm claim billed under correct subscriber.",
-      "Correct and resubmit as new claim."
-    ]
-  },
-  {
-    "code": "CO-29",
-    "title": "Timely Filing Limit Exceeded",
-    "category": "Timely Filing",
-    "clinic": ["neonatology"],
-    "description": [
-      "Check payer filing limits.",
-      "Verify newborn enrollment delay.",
-      "Appeal with proof if applicable."
-    ]
-  },
-  {
-    "code": "MA130",
-    "title": "Unprocessable claim due to missing/invalid info",
-    "category": "Eligibility / Identification",
-    "clinic": ["pain", "neonatology"],
-    "description": [
-      "Identify missing or incorrect information on the claim.",
-      "Correct the claim details.",
-      "Submit as a new claim (do not appeal).",
-      "Document steps in the patient record."
-    ]
-  },
-  {
-    "code": "CO-45",
-    "title": "Charge exceeds fee schedule / contracted maximum",
-    "category": "Contractual / Fee Schedule",
-    "clinic": ["pain", "neonatology"],
-    "description": [
-      "Check payer’s fee schedule.",
-      "Compare billed charge to allowed amount.",
-      "Post adjustment for the difference.",
-      "Do not bill patient for CO-45."
-    ]
-  },
-  {
-    "code": "PR-2",
-    "title": "Coinsurance",
-    "category": "Patient Responsibility",
-    "clinic": ["pain", "neonatology"],
-    "description": [
-      "Identify patient responsibility per ERA/EOB.",
-      "Check if patient is Medicare/QMB — may not be billable.",
-      "Post coinsurance in PM system if allowed.",
-      "Document any adjustments or write-offs."
-    ]
-  },
-  {
-    "code": "PR-3",
-    "title": "Copay",
-    "category": "Patient Responsibility",
-    "clinic": ["pain", "neonatology"],
-    "description": [
-      "Identify copay from secondary payer ERA/EOB.",
-      "Check if patient is Medicare/QMB — may not be billable.",
-      "Post copay in PM system if allowed.",
-      "Document in patient account notes."
-    ]
-  },
-  {
-    "code": "CO-4",
-    "title": "Procedure inconsistent with modifier",
-    "category": "Coding / Modifier Issues",
-    "clinic": ["pain", "neonatology"],
-    "description": [
-      "Required modifier is missing or invalid.",
-      "Review and apply correct CPT/HCPCS modifiers.",
-      "Resubmit with accurate coding."
-    ]
-  },
-  {
-    "code": "CO-11",
-    "title": "Diagnosis inconsistent with procedure",
-    "category": "Coding / Documentation",
-    "clinic": ["pain", "neonatology"],
-    "description": [
-      "Diagnosis code does not support the billed procedure.",
-      "Confirm diagnosis aligns with medical record.",
-      "Adjust and resubmit."
-    ]
-  },
-  {
-    "code": "CO-18",
-    "title": "Duplicate claim or service",
-    "category": "Duplicate / Submission Errors",
-    "clinic": ["pain", "neonatology"],
-    "description": [
-      "Same claim or service appears more than once.",
-      "Verify claim history before resubmission.",
-      "Withdraw duplicates where appropriate."
-    ]
-  },
-  {
-    "code": "CO-27",
-    "title": "Expenses exceed allowed amount",
-    "category": "Contractual / Fee Schedule",
-    "clinic": ["pain", "neonatology"],
-    "description": [
-      "Charge exceeds allowed fee schedule.",
-      "Post adjustment based on contract.",
-      "Do not bill patient for difference."
-    ]
-  },
-  {
-    "code": "CO-96",
-    "title": "Non-covered charge",
-    "category": "Coverage / Eligibility",
-    "clinic": ["pain", "neonatology"],
-    "description": [
-      "Service not covered by patient plan.",
-      "Verify benefits and plan coverage.",
-      "Discuss self-pay options if appropriate."
-    ]
-  },
-  {
-    "code": "CO-109",
-    "title": "Claim not covered by this payer",
-    "category": "Coverage / Eligibility",
-    "clinic": ["pain", "neonatology"],
-    "description": [
-      "Claim billed to wrong payer.",
-      "Confirm payer information.",
-      "Resubmit to correct insurer."
-    ]
-  },
-  {
-    "code": "CO-151",
-    "title": "Information does not support service billed",
-    "category": "Coding / Documentation",
-    "clinic": ["pain", "neonatology"],
-    "description": [
-      "Documentation does not support billed service.",
-      "Review clinical notes and coding.",
-      "Correct and resubmit."
-    ]
-  },
-  {
-    "code": "CO-167",
-    "title": "Diagnosis not covered",
-    "category": "Medical Necessity",
-    "clinic": ["pain", "neonatology"],
-    "description": [
-      "Diagnosis excluded under patient’s plan.",
-      "Review coverage guidelines.",
-      "Adjust diagnosis or provide justification."
-    ]
-  },
-  {
-    "code": "CO-170",
-    "title": "Service not covered per policy",
-    "category": "Coverage / Policy",
-    "clinic": ["pain", "neonatology"],
-    "description": [
-      "Service excluded under payer rules.",
-      "Verify policy terms.",
-      "Appeal only if grounds documented."
-    ]
-  },
-  {
-    "code": "CO-204",
-    "title": "Service not covered by benefit plan",
-    "category": "Coverage / Eligibility",
-    "clinic": ["pain", "neonatology"],
-    "description": [
-      "Service not a covered benefit.",
-      "Verify benefit plan details.",
-      "Advise patient of coverage limits."
-    ]
-  },
-  {
-    "code": "CO-252",
-    "title": "Required attachment missing",
-    "category": "Documentation",
-    "clinic": ["pain", "neonatology"],
-    "description": [
-      "Missing required documentation.",
-      "Attach necessary clinical records.",
-      "Resubmit with attachments."
-    ]
-  },
-  {
-    "code": "CO-B7",
-    "title": "Provider not eligible to bill this service",
-    "category": "Provider Eligibility",
-    "clinic": ["pain", "neonatology"],
-    "description": [
-      "Provider not credentialed.",
-      "Verify enrollment and credentialing.",
-      "Update payer files and resubmit."
-    ]
-  },
-  {
-    "code": "PR-1",
-    "title": "Deductible amount",
-    "category": "Patient Responsibility",
-    "clinic": ["pain", "neonatology"],
-    "description": [
-      "Patient deductible applies.",
-      "Verify deductible amount.",
-      "Bill patient accordingly."
-    ]
-  },
-  {
-    "code": "CO-31",
-    "title": "Patient cannot be identified",
-    "category": "Eligibility / Identification",
-    "clinic": ["pain", "neonatology"],
-    "description": [
-      "Patient data incorrect or missing.",
-      "Check demographics and policy ID.",
-      "Resubmit corrected claim."
-    ]
-  },
-  {
-    "code": "CO-15",
-    "title": "Invalid/nonexistent auth",
-    "category": "Authorization / Referral",
-    "clinic": ["pain", "neonatology"],
-    "description": [
-      "Authorization invalid or incorrectly recorded.",
-      "Verify auth details.",
-      "Correct and resubmit."
-    ]
-  },
-  {
-    "code": "CO-6",
-    "title": "Procedure code/Type of bill invalid",
-    "category": "Coding / Submission Errors",
-    "clinic": ["pain", "neonatology"],
-    "description": [
-      "Procedure code or type of bill incorrect.",
-      "Check CPT/HCPCS and billing type.",
-      "Correct and resubmit."
-    ]
-  },
-  {
-    "code": "CO-9",
-    "title": "Invalid/Unknown procedure code",
-    "category": "Coding / Submission Errors",
-    "clinic": ["pain", "neonatology"],
-    "description": [
-      "Procedure code not recognized.",
-      "Verify coding manuals.",
-      "Resubmit with correct code."
-    ]
-  }
-]
+  "denials": [
+    {
+      "code": "CO-22",
+      "title": "Other payer primary (COB)",
+      "category": "Coordination of Benefits",
+      "clinic": ["pain"],
+      "definition": "Another insurer is primary for this claim.",
+      "resolution": "Finish claim with secondary billing",
+      "steps": [
+        "Verify primary insurance.",
+        "Obtain primary EOB/ERA.",
+        "Post primary payment and adjustments.",
+        "Submit secondary claim with COB data."
+      ],
+      "remarks": "Secondary billing requires primary EOB."
+    },
+    {
+      "code": "CO-50",
+      "title": "Not medically necessary",
+      "category": "Medical Necessity",
+      "clinic": ["pain"],
+      "definition": "Service does not meet payer medical necessity criteria.",
+      "resolution": "Appeal or adjust",
+      "steps": [
+        "Review LCD/NCD or payer policy.",
+        "Confirm documentation supports severity and conservative treatment.",
+        "Appeal with records if criteria met.",
+        "Adjust if criteria not met."
+      ],
+      "remarks": "Appeal only when policy criteria are met."
+    },
+    {
+      "code": "CO-197",
+      "title": "Authorization required",
+      "category": "Authorization",
+      "clinic": ["pain"],
+      "definition": "Required authorization missing or invalid.",
+      "resolution": "Correct and resubmit or appeal",
+      "steps": [
+        "Verify CPT, units, DOS, and provider.",
+        "Obtain retro authorization if allowed.",
+        "Resubmit or appeal with proof."
+      ],
+      "remarks": "Auth must match billed services exactly."
+    },
+    {
+      "code": "CO-97",
+      "title": "Bundled service",
+      "category": "Coding / Bundling",
+      "clinic": ["pain"],
+      "definition": "Service bundled into another procedure per NCCI.",
+      "resolution": "Adjust or correct coding",
+      "steps": [
+        "Review NCCI edits.",
+        "Apply modifier 59/X only if distinct.",
+        "Adjust if properly bundled."
+      ],
+      "remarks": "Unbundling without support is noncompliant."
+    },
+    {
+      "code": "CO-16",
+      "title": "Missing or invalid information",
+      "category": "Demographics / Eligibility",
+      "clinic": ["pain"],
+      "definition": "Claim data missing or invalid.",
+      "resolution": "Correct and resubmit",
+      "steps": [
+        "Verify demographics and insurance ID.",
+        "Correct claim errors.",
+        "Submit as new claim."
+      ],
+      "remarks": "Correctable error, not appealable."
+    },
+    {
+      "code": "MA130",
+      "title": "Unprocessable claim",
+      "category": "Claim Rejection",
+      "clinic": ["pain"],
+      "definition": "Claim rejected before adjudication.",
+      "resolution": "Correct and resubmit",
+      "steps": [
+        "Identify missing or invalid fields.",
+        "Correct claim.",
+        "Resubmit."
+      ],
+      "remarks": "Rejection, not a denial."
+    },
+    {
+      "code": "CO-45",
+      "title": "Charge exceeds fee schedule",
+      "category": "Contractual",
+      "clinic": ["pain"],
+      "definition": "Charge exceeds allowed amount.",
+      "resolution": "Adjust",
+      "steps": [
+        "Compare allowed vs billed.",
+        "Post contractual adjustment."
+      ],
+      "remarks": "Cannot bill patient."
+    },
+    {
+      "code": "CO-96",
+      "title": "Non-covered charge",
+      "category": "Coverage",
+      "clinic": ["pain"],
+      "definition": "Service not covered under plan.",
+      "resolution": "Adjust or patient responsibility",
+      "steps": [
+        "Verify benefits.",
+        "Confirm ABN if applicable.",
+        "Adjust or bill patient if allowed."
+      ],
+      "remarks": "Coverage ≠ medical necessity."
+    },
+    {
+      "code": "CO-109",
+      "title": "Claim not covered by this payer",
+      "category": "Coverage",
+      "clinic": ["pain"],
+      "definition": "Incorrect payer billed.",
+      "resolution": "Resubmit to correct payer",
+      "steps": [
+        "Verify payer order.",
+        "Update insurance.",
+        "Resubmit claim."
+      ],
+      "remarks": "Common with secondary plans."
+    },
+    {
+      "code": "CO-11",
+      "title": "Diagnosis inconsistent with procedure",
+      "category": "Coding",
+      "clinic": ["pain"],
+      "definition": "Diagnosis does not support CPT.",
+      "resolution": "Correct coding",
+      "steps": [
+        "Review documentation.",
+        "Correct ICD-10 if supported.",
+        "Resubmit."
+      ],
+      "remarks": "Diagnosis must be documented."
+    },
+    {
+      "code": "CO-18",
+      "title": "Duplicate claim",
+      "category": "Duplicate Billing",
+      "clinic": ["pain"],
+      "definition": "Service already submitted or processed.",
+      "resolution": "No action or void",
+      "steps": [
+        "Verify claim history.",
+        "Void or write off duplicate."
+      ],
+      "remarks": "Do not resubmit duplicates."
+    },
+    {
+      "code": "CO-4",
+      "title": "Inconsistent or missing modifier",
+      "category": "Coding",
+      "clinic": ["pain"],
+      "definition": "Modifier missing or invalid.",
+      "resolution": "Correct and resubmit",
+      "steps": [
+        "Review modifier rules.",
+        "Apply correct modifier.",
+        "Resubmit."
+      ],
+      "remarks": "Documentation must support modifier."
+    },
+    {
+      "code": "CO-252",
+      "title": "Required attachment missing",
+      "category": "Documentation",
+      "clinic": ["pain"],
+      "definition": "Required documentation not received.",
+      "resolution": "Resubmit with records",
+      "steps": [
+        "Identify required documentation.",
+        "Attach records.",
+        "Resubmit claim."
+      ],
+      "remarks": "Common for injections and RFA."
+    },
+    {
+      "code": "CO-B7",
+      "title": "Provider not eligible",
+      "category": "Provider Enrollment",
+      "clinic": ["pain"],
+      "definition": "Provider not credentialed for service.",
+      "resolution": "Correct provider or enrollment",
+      "steps": [
+        "Verify credentialing.",
+        "Correct provider.",
+        "Resubmit."
+      ],
+      "remarks": "Patient cannot be billed."
+    },
+    {
+      "code": "PR-1",
+      "title": "Deductible",
+      "category": "Patient Responsibility",
+      "clinic": ["pain"],
+      "definition": "Applied to patient deductible.",
+      "resolution": "Bill patient",
+      "steps": [
+        "Verify deductible.",
+        "Confirm eligibility.",
+        "Bill patient."
+      ],
+      "remarks": "Check QMB status."
+    },
+    {
+      "code": "PR-2",
+      "title": "Coinsurance",
+      "category": "Patient Responsibility",
+      "clinic": ["pain"],
+      "definition": "Patient share of allowed amount.",
+      "resolution": "Bill patient",
+      "steps": [
+        "Post coinsurance.",
+        "Bill patient if allowed."
+      ],
+      "remarks": "State rules apply."
+    },
+    {
+      "code": "PR-3",
+      "title": "Copayment",
+      "category": "Patient Responsibility",
+      "clinic": ["pain"],
+      "definition": "Fixed copay amount.",
+      "resolution": "Bill patient",
+      "steps": [
+        "Post copay.",
+        "Bill patient if allowed."
+      ],
+      "remarks": "Do not bill QMB."
+    },
+    {
+      "code": "CO-29",
+      "title": "Timely filing exceeded",
+      "category": "Timely Filing",
+      "clinic": ["pain"],
+      "definition": "Claim filed after payer deadline.",
+      "resolution": "Appeal or adjust",
+      "steps": [
+        "Verify filing limit.",
+        "Appeal with proof if available.",
+        "Adjust if no proof."
+      ],
+      "remarks": "Proof required for appeal."
+    },
+    {
+      "code": "CO-151",
+      "title": "Information does not support service billed",
+      "category": "Documentation",
+      "clinic": ["pain"],
+      "definition": "Documentation insufficient for billed service.",
+      "resolution": "Correct or appeal",
+      "steps": [
+        "Review clinical notes.",
+        "Correct coding or submit appeal."
+      ],
+      "remarks": "Documentation drives payment."
+    },
+    {
+      "code": "CO-167",
+      "title": "Diagnosis not covered",
+      "category": "Medical Necessity",
+      "clinic": ["pain"],
+      "definition": "Diagnosis excluded by payer policy.",
+      "resolution": "Adjust or appeal",
+      "steps": [
+        "Review coverage policy.",
+        "Appeal if diagnosis is misapplied."
+      ],
+      "remarks": "Coverage-based denial."
+    },
+    {
+      "code": "CO-170",
+      "title": "Service not covered per policy",
+      "category": "Coverage",
+      "clinic": ["pain"],
+      "definition": "Service excluded by policy.",
+      "resolution": "Adjust",
+      "steps": [
+        "Verify policy.",
+        "Adjust charge."
+      ],
+      "remarks": "Appeal rarely successful."
+    },
+    {
+      "code": "CO-204",
+      "title": "Service not covered by benefit plan",
+      "category": "Coverage",
+      "clinic": ["pain"],
+      "definition": "Service not a plan benefit.",
+      "resolution": "Adjust or patient responsibility",
+      "steps": [
+        "Verify benefits.",
+        "Bill patient if allowed."
+      ],
+      "remarks": "ABN required for patient billing."
+    },
+    {
+      "code": "CO-31",
+      "title": "Patient cannot be identified",
+      "category": "Eligibility",
+      "clinic": ["pain"],
+      "definition": "Patient information does not match payer records.",
+      "resolution": "Correct and resubmit",
+      "steps": [
+        "Verify demographics.",
+        "Correct insurance info.",
+        "Resubmit."
+      ],
+      "remarks": "Eligibility mismatch."
+    },
+    {
+      "code": "CO-6",
+      "title": "Invalid procedure code or bill type",
+      "category": "Coding",
+      "clinic": ["pain"],
+      "definition": "Procedure or bill type invalid.",
+      "resolution": "Correct and resubmit",
+      "steps": [
+        "Verify CPT/HCPCS.",
+        "Correct claim.",
+        "Resubmit."
+      ],
+      "remarks": "Check annual CPT updates."
+    },
+    {
+      "code": "CO-9",
+      "title": "Invalid or unknown procedure code",
+      "category": "Coding",
+      "clinic": ["pain"],
+      "definition": "Procedure code not recognized.",
+      "resolution": "Correct and resubmit",
+      "steps": [
+        "Verify correct CPT.",
+        "Update claim.",
+        "Resubmit."
+      ],
+      "remarks": "Often caused by outdated codes."
+    }
+  ]
+}
