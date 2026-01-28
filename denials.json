@@ -36,7 +36,6 @@
       ],
       "remarks": "Secondary billing requires primary payment posting."
     },
-
     {
       "code": "CO-50",
       "title": "Not medically necessary",
@@ -56,7 +55,6 @@
       ],
       "remarks": "Appeal only when policy criteria are clearly met."
     },
-
     {
       "code": "CO-197",
       "title": "Authorization required",
@@ -76,7 +74,6 @@
       ],
       "remarks": "Authorization must match CPT, units, DOS, and provider."
     },
-
     {
       "code": "CO-97",
       "title": "Bundled service",
@@ -95,7 +92,6 @@
       ],
       "remarks": "Unbundling without documentation is noncompliant."
     },
-
     {
       "code": "CO-16",
       "title": "Missing or invalid information",
@@ -114,7 +110,6 @@
       ],
       "remarks": "Correctable data error."
     },
-
     {
       "code": "MA130",
       "title": "Unprocessable claim",
@@ -133,7 +128,6 @@
       ],
       "remarks": "Rejection, not a denial."
     },
-
     {
       "code": "CO-45",
       "title": "Charge exceeds fee schedule",
@@ -151,7 +145,6 @@
       ],
       "remarks": "Patient cannot be billed."
     },
-
     {
       "code": "CO-96",
       "title": "Non-covered charge",
@@ -170,7 +163,6 @@
       ],
       "remarks": "Coverage denial is not medical necessity."
     },
-
     {
       "code": "CO-109",
       "title": "Claim not covered by this payer",
@@ -189,7 +181,6 @@
       ],
       "remarks": "Common coordination of benefits issue."
     },
-
     {
       "code": "CO-11",
       "title": "Diagnosis inconsistent with procedure",
@@ -208,7 +199,6 @@
       ],
       "remarks": "Diagnosis must be documented."
     },
-
     {
       "code": "CO-18",
       "title": "Duplicate claim",
@@ -226,7 +216,6 @@
       ],
       "remarks": "Do not resubmit duplicates."
     },
-
     {
       "code": "CO-4",
       "title": "Missing or invalid modifier",
@@ -245,7 +234,6 @@
       ],
       "remarks": "Modifiers must be supported by documentation."
     },
-
     {
       "code": "CO-252",
       "title": "Required attachment missing",
@@ -264,7 +252,6 @@
       ],
       "remarks": "Common with injections and RFA."
     },
-
     {
       "code": "CO-B7",
       "title": "Provider not eligible",
@@ -282,8 +269,222 @@
         "Resubmit claim."
       ],
       "remarks": "Patient cannot be billed."
+    },
+    {
+      "code": "PR-1",
+      "title": "Deductible amount",
+      "category": "Patient Responsibility",
+      "clinic": ["pain"],
+      "definition": "Patient deductible applies.",
+      "resolution": "Bill patient accordingly",
+      "actionType": "POST_PATIENT",
+      "appealAllowed": false,
+      "priority": "MEDIUM",
+      "termsUsed": ["DOS"],
+      "steps": [
+        "Verify deductible amount.",
+        "Post to patient account.",
+        "Document in PM system."
+      ],
+      "remarks": "Check insurance deductible met status."
+    },
+    {
+      "code": "PR-2",
+      "title": "Coinsurance",
+      "category": "Patient Responsibility",
+      "clinic": ["pain"],
+      "definition": "Patient coinsurance applies.",
+      "resolution": "Bill patient accordingly",
+      "actionType": "POST_PATIENT",
+      "appealAllowed": false,
+      "priority": "MEDIUM",
+      "termsUsed": ["DOS", "EOB"],
+      "steps": [
+        "Identify coinsurance from EOB.",
+        "Post to patient account.",
+        "Document adjustments or write-offs."
+      ],
+      "remarks": "Do not bill QMB patients."
+    },
+    {
+      "code": "PR-3",
+      "title": "Copay",
+      "category": "Patient Responsibility",
+      "clinic": ["pain"],
+      "definition": "Patient copay applies.",
+      "resolution": "Bill patient accordingly",
+      "actionType": "POST_PATIENT",
+      "appealAllowed": false,
+      "priority": "MEDIUM",
+      "termsUsed": ["DOS", "EOB"],
+      "steps": [
+        "Identify copay from EOB.",
+        "Post to patient account.",
+        "Document adjustments or write-offs."
+      ],
+      "remarks": "Check if patient is QMB; do not bill if applicable."
+    },
+    {
+      "code": "CO-31",
+      "title": "Patient cannot be identified",
+      "category": "Eligibility / Identification",
+      "clinic": ["pain"],
+      "definition": "Patient demographic information missing or incorrect.",
+      "resolution": "Correct and resubmit",
+      "actionType": "RESUBMIT_NEW",
+      "appealAllowed": false,
+      "priority": "HIGH",
+      "termsUsed": ["DOB", "CPT"],
+      "steps": [
+        "Check patient demographics and policy ID.",
+        "Correct errors.",
+        "Resubmit claim as new."
+      ],
+      "remarks": "Avoid duplicate patient records."
+    },
+    {
+      "code": "CO-15",
+      "title": "Invalid or nonexistent authorization",
+      "category": "Authorization",
+      "clinic": ["pain"],
+      "definition": "Authorization invalid, expired, or missing.",
+      "resolution": "Correct and resubmit",
+      "actionType": "RESUBMIT_OR_APPEAL",
+      "appealAllowed": true,
+      "priority": "HIGH",
+      "termsUsed": ["CPT", "DOS"],
+      "steps": [
+        "Verify authorization number and dates.",
+        "Request retro authorization if allowed.",
+        "Resubmit or appeal with valid authorization."
+      ],
+      "remarks": "Retro auth only accepted if payer permits."
+    },
+    {
+      "code": "CO-6",
+      "title": "Procedure code or type of bill invalid",
+      "category": "Coding / Submission",
+      "clinic": ["pain"],
+      "definition": "Incorrect CPT, HCPCS, or type of bill submitted.",
+      "resolution": "Correct and resubmit",
+      "actionType": "RESUBMIT_NEW",
+      "appealAllowed": false,
+      "priority": "HIGH",
+      "termsUsed": ["CPT", "HCPCS"],
+      "steps": [
+        "Verify procedure codes and type of bill.",
+        "Correct invalid codes.",
+        "Resubmit claim."
+      ],
+      "remarks": "Ensure coding manuals are up to date."
+    },
+    {
+      "code": "CO-9",
+      "title": "Invalid or unknown procedure code",
+      "category": "Coding / Submission",
+      "clinic": ["pain"],
+      "definition": "Procedure code not recognized by payer.",
+      "resolution": "Correct and resubmit",
+      "actionType": "RESUBMIT_NEW",
+      "appealAllowed": false,
+      "priority": "HIGH",
+      "termsUsed": ["CPT", "HCPCS"],
+      "steps": [
+        "Verify procedure code in CPT/HCPCS manuals.",
+        "Correct code if necessary.",
+        "Resubmit claim."
+      ],
+      "remarks": "Invalid codes result in automatic rejection."
+    },
+    {
+      "code": "CO-27",
+      "title": "Expenses exceed allowed amount",
+      "category": "Contractual",
+      "clinic": ["pain"],
+      "definition": "Billed charges exceed contracted fee schedule.",
+      "resolution": "Adjust",
+      "actionType": "ADJUST",
+      "appealAllowed": false,
+      "priority": "LOW",
+      "termsUsed": ["EOB"],
+      "steps": [
+        "Compare billed charges to contract allowed.",
+        "Post adjustment.",
+        "Do not bill patient for difference."
+      ],
+      "remarks": "Standard contractual adjustment."
+    },
+    {
+      "code": "CO-170",
+      "title": "Service not covered per policy",
+      "category": "Coverage / Policy",
+      "clinic": ["pain"],
+      "definition": "Service excluded under payer rules.",
+      "resolution": "Adjust or appeal if documented",
+      "actionType": "ADJUST_OR_APPEAL",
+      "appealAllowed": true,
+      "priority": "MEDIUM",
+      "termsUsed": ["ABN"],
+      "steps": [
+        "Verify policy exclusions.",
+        "Submit appeal only if justification documented.",
+        "Adjust claim if non-covered."
+      ],
+      "remarks": "Self-pay may be necessary if non-covered."
+    },
+    {
+      "code": "CO-151",
+      "title": "Information does not support service billed",
+      "category": "Coding / Documentation",
+      "clinic": ["pain"],
+      "definition": "Documentation insufficient to support billed service.",
+      "resolution": "Correct documentation and resubmit",
+      "actionType": "RESUBMIT_WITH_DOCS",
+      "appealAllowed": false,
+      "priority": "HIGH",
+      "termsUsed": ["CPT", "ICD-10"],
+      "steps": [
+        "Review clinical notes.",
+        "Ensure coding aligns with documentation.",
+        "Resubmit claim."
+      ],
+      "remarks": "Incomplete documentation will be denied."
+    },
+    {
+      "code": "CO-167",
+      "title": "Diagnosis not covered",
+      "category": "Medical Necessity",
+      "clinic": ["pain"],
+      "definition": "Diagnosis excluded under patient’s plan.",
+      "resolution": "Adjust diagnosis or provide justification",
+      "actionType": "ADJUST_OR_APPEAL",
+      "appealAllowed": true,
+      "priority": "HIGH",
+      "termsUsed": ["ICD-10"],
+      "steps": [
+        "Review payer exclusions.",
+        "Provide medical justification or adjust diagnosis.",
+        "Resubmit or appeal."
+      ],
+      "remarks": "Appeal only if justification is valid."
+    },
+    {
+      "code": "CO-204",
+      "title": "Service not covered by benefit plan",
+      "category": "Coverage",
+      "clinic": ["pain"],
+      "definition": "Service is outside covered benefits.",
+      "resolution": "Inform patient or adjust",
+      "actionType": "ADJUST_OR_PATIENT",
+      "appealAllowed": false,
+      "priority": "MEDIUM",
+      "termsUsed": ["ABN"],
+      "steps": [
+        "Verify benefit plan.",
+        "Inform patient of limits.",
+        "Adjust claim accordingly."
+      ],
+      "remarks": "Patient self-pay may apply."
     }
-
-    /* Remaining codes follow same structure to reach 30 total */
   ]
 }
